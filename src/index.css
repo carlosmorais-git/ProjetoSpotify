@@ -1,0 +1,60 @@
+/* Reset -----------------------------------------------*/
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+a {
+    color: inherit; /* Herda cor*/
+    text-decoration: none;
+}
+
+#root{
+    height: 100svh; /*força pegar tamanho todo da tela deixar mais responsivo*/
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header --------------------------------------------*/ 
+.header{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+.header__link:hover {
+    text-decoration: underline;
+
+}
+
+/* Main -----------------------------------------------*/
+
+.main{
+    background-color: brown;
+    padding: 20px;
+    margin: 0 10px 10px;
+    border-radius: 15px;
+    flex: 1;/* se espande no maximo dentro do seu contenner pai */
+}
+.main__text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+.main__link:hover {
+    text-decoration: underline;
+
+}
+
+https://www.youtube.com/watch?v=8cKuB0PfqTs
