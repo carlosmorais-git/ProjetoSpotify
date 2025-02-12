@@ -1,12 +1,15 @@
+import ItemList from './ItemList'
 const Main = () => {
   return (
     <div className="main">
-        <div className="main__text">
-            <h2>Artistas populares</h2>
-            <a className="main__link" href="/">Mostrar tudo</a>
-        </div>
+        {/* Lista Artista */}
+        <ItemList title = 'Artista'/>
+
+         {/* Lista de Musicas */}
+        <ItemList title = 'Musicas'/>   
+
     </div>
-  )
-}
+  );
+};
 
 export default Main

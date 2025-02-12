@@ -5,6 +5,8 @@ import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
+ 
+ /* <StrictMode> - Utilizado para identificar potenciais problemas no meu projeto, ajudando a garantir sua robustez e boas práticas. */
   <StrictMode>
     <App />
   </StrictMode>,
