@@ -1,3 +1,8 @@
+/* AULA COMPLEMENTAR DO CSS
+https://gamma.app/docs/Material-Complementar-Leia-com-atencao-4zcmbyugmzlav2v?mode=doc */
+
+
+
 :root {
   --green-50: hsl(141deg 75% 90%);
   --green-100: hsl(141deg 75% 85%);
@@ -245,8 +250,6 @@ img {
   height: 40svh;
   background-size: cover;
   background-position-y: 20%;
-  background-image: linear-gradient(to bottom, var(--_shade), var(--_shade)),
-    url(https://i.scdn.co/image/ab67618600001016909a162796dbc3629a1fadeb);
 }
 
 .artist__title {
@@ -306,7 +309,7 @@ img {
 }
 /*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
 .song-item__name:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Adiciona um underline */
 }
 
 .song-item__image {
@@ -326,12 +329,12 @@ img {
   align-items: center;
   gap: 25px;
 }
-
+/* Ver mais */
 .song-list__see-more {
-  font-weight: 700;
+  font-weight: 700; /* Tamnho da fonte */
   margin-left: 25px;
   margin-top: 20px;
-  cursor: pointer;
+  cursor: pointer; /* Efeito de clicar em um link*/
 }
 /*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
 .song-list__see-more:hover {
@@ -354,13 +357,13 @@ img {
 
 .song__container {
   margin: 0 20px;
+  border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-image: linear-gradient(
-    to bottom,
+    to bottom, /* to bottom = no fundo*/
     var(--green-800),
     var(--green-950)
   );
-  border-top-left-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -382,9 +385,12 @@ img {
 }
 
 .song__artist-image {
+  width: 75px;
+  height: 75px;
   justify-self: start;
   border-radius: var(--border-radius-s);
   overflow: hidden;
+ 
 }
 
 .song__name {
@@ -482,7 +488,7 @@ img {
 }
 
 .player__bar-progress {
-  --_progress: 0;
+  --_progress: 15%; /* barra de prograsso, ela cresce ao alterar os valores dessa variavel*/
 
   height: 100%;
   width: var(--_progress);

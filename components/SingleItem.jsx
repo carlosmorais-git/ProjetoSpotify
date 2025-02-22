@@ -1,24 +1,36 @@
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCirclePlay} from "@fortawesome/free-solid-svg-icons"
+import 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons"
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const SigleItem = () => {
+const SingleItem = ({ id, image, name, banner, artist, idPath }) => {
   return (
-    <div className="single-item">
-                  <div className='single-item__div-image-button '>
-                    <div className='single-item__div-image'>
-                      <img className="single-item__image"
-                      src="https://i.scdn.co/image/ab676161000051744dcd8a3bff84cd7703892cf4"
-                      alt="Imagem do Artista x"/>
-                    </div>
-                    <FontAwesomeIcon className='single-item__icon' icon={faCirclePlay} />
-                  </div>
-                  <div className='single-item__texts'>
-                    <p className='single-item__title single-item__2lines'>Henrique & Juliano</p>
-                    <p className='single-item__type'>Artista</p>
-                  </div>
-    
-                </div>
+    <Link to={`${idPath}/${id}`} className="single-item">
+      <div className='single-item__div-image-button '>
+        <div className='single-item__div-image'>
+          <img className="single-item__image"
+            src={image}
+            alt={`Imagem do Artista ${name}`} />
+        </div>
+        <FontAwesomeIcon className='single-item__icon' icon={faCirclePlay} />
+      </div>
+      <div className='single-item__texts'>
+        <p className='single-item__title single-item__2lines'>{name}</p>
+        <p className='single-item__type'>{artist ?? 'Artista'}</p>
+      </div>
+
+    </Link>
   );
 };
+SingleItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  banner: PropTypes.string.isRequired,
+  artist: PropTypes.string.isRequired,
+  idPath: PropTypes.string.isRequired,
 
-export default SigleItem
+};
+
+export default SingleItem
