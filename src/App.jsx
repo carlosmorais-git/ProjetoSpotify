@@ -25,9 +25,9 @@ const App = () => {
       
       <Route path="/" element={<Home />} />
       <Route path="/artists" element={<Artists />} />
-      <Route path="/artist/:id" element={<Artist />} />
+      <Route path="/artist/:artist_id" element={<Artist />} />
       <Route path="/songs" element={<Songs />} />
-      <Route path="/song/:id" element={<Song />} />
+      <Route path="/song/:song_id" element={<Song />} />
     </Routes>
   </BrowserRouter>);
 

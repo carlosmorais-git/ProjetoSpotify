@@ -10,6 +10,7 @@ import { Link, useLocation } from 'react-router-dom';
 const ItemList = ({ title, item, itemArray, path, idPath }) => {
 
   const { pathname } = useLocation(); // processo de desestruturação
+ 
   const isHome = pathname === '/';
   // se estiver na home continuo com o valor recuperado caso contrario passo um valor infinito
   const finalItems = isHome ? item : Infinity
@@ -43,6 +44,7 @@ const ItemList = ({ title, item, itemArray, path, idPath }) => {
                 // Espalhando as propriedades do objeto `valorCorr` como props
                 // Isso evita a necessidade de escrever manualmente: nome={valorCorr.nome} genero={valorCorr.genero} idade={valorCorr.idade}
                 {...valorCorr}
+                
                 idPath={idPath}
                 key={`${title}_${chave}`} />
 

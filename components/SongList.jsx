@@ -1,12 +1,10 @@
 import 'react'
 import SongItem from './SongItem'
 import PropTypes from 'prop-types';
-import { songsArray } from '../src/assets/database/songs';
 
-const SongList = ({ artistaSelecionado }) => {
+const SongList = ({ musicasFiltradaPeloArtista}) => {
 
-  const musicasFiltradaPeloArtista = songsArray.filter((valor) => valor['artist'] === artistaSelecionado).map((valor) => valor)
-  console.log(musicasFiltradaPeloArtista)
+ 
   return (
     <div className='song-list'>
       {
@@ -15,22 +13,20 @@ const SongList = ({ artistaSelecionado }) => {
           .map((valor,chave) => (
             <SongItem 
             {...valor}
-            key={`title_${chave}`} 
+            index = {chave + 1}
+            key={`musica_${chave}`} 
             />
           ))
           
           
       }
-      { console.log(musicasFiltradaPeloArtista)}
-      
-
-
+  
 
     </div>
    
   )
 }
 SongList.propTypes = {
-  artistaSelecionado: PropTypes.string,
+  musicasFiltradaPeloArtista: PropTypes.array,
 };
 export default SongList

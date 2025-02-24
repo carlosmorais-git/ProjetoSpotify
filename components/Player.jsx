@@ -2,9 +2,9 @@ import 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlay, faBackwardStep, faForwardStep } from "@fortawesome/free-solid-svg-icons"
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-
-const Player = () => {
+const Player = ( {duracao} ) => {
   return (
     <div className='player'>
 
@@ -32,7 +32,7 @@ const Player = () => {
         </div>
 
         {/* Tempo final */}
-        <p>03:45</p>
+        <p>{ duracao }</p>
 
 
 
@@ -40,6 +40,9 @@ const Player = () => {
     </div>
 
   )
+}
+Player.propTypes = {
+  duracao:PropTypes.string,
 }
 
 export default Player
