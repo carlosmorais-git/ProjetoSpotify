@@ -12,8 +12,9 @@ const SongItem = ({ image,name,duration,index,id}) => {
         <Link to={`/song/${id}`} className='song-item'> 
 
             {/* Os 3 primeiros valores agrupados */}
+            
             <div className='song-item__number-album'>
-                <p>{index}</p>
+                <p className='song-index__number-album'>{index}</p>
                 {/* Bloco album */}
                 <div className='song-item__album'>
                     <img src={image} alt="Imagem" className='song-item__image' />                    

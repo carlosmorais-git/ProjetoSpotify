@@ -329,6 +329,10 @@ img {
   align-items: center;
   gap: 25px;
 }
+.song-index__number-album{
+  width: 20px;
+
+}
 /* Ver mais */
 .song-list__see-more {
   font-weight: 700; /* Tamnho da fonte */
@@ -454,6 +458,10 @@ img {
   transition-property: transform, color;
   transition-timing-function: var(--transition-function);
   transition-duration: var(--transition-duration);
+}
+.player__icon--selecao {
+  cursor: pointer;
+  color: var(--green-300);
 }
 /*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
 .player__icon:hover {

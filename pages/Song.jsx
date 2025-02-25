@@ -7,20 +7,18 @@ import { artistArray } from '../src/assets/database/artists';
 const Song = () => {
   
   const { song_id } = useParams();
-
-  
-  const musicaSelecionada = songsArray
-  .filter((valor) => valor.id === parseInt(song_id))
-  .map((valor) => valor)[0];
-  const artista = artistArray.filter((valor) => valor.name === musicaSelecionada.artist)[0]
+ 
+  const { artist,name,duration,audio,image } = songsArray
+  .filter((valor) => valor.id === parseInt(song_id))[0];
+  const artista = artistArray.filter((valor) => valor.name === artist)[0]
 
 
   return (
     <div className='song'>
       <div className='song__container'>
         <div className='song__image-container'>
-          <img src={ musicaSelecionada.image }
-            alt={ `Imagem da musica ${musicaSelecionada.name}` } />
+          <img src={ image }
+            alt={ `Imagem da musica ${name}` } />
         </div>
       </div>
 
@@ -34,11 +32,11 @@ const Song = () => {
           
         </Link>
 
-        <Player duracao = { musicaSelecionada.duration } audio = { musicaSelecionada.audio }/>
+        <Player duracao = { duration } audio = { audio } idMusica = {song_id }/>
 
         <div>
-          <p className='song__name'>{ musicaSelecionada.name }</p>
-          <p>{ musicaSelecionada.artist }</p>
+          <p className='song__name'>{ name }</p>
+          <p>{ artist }</p>
         </div>
 
       </div>

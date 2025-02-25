@@ -1,0 +1,16 @@
+- Na tela de home fazer os artistas ser surgerido com base no que o usuario gosta de ouvir.
+
+exemplo:
+    A posicao 1 artista do meu momento
+    A posicao 2 ultimo artista selecionado
+    A posicao 3 penultimo artista selecionado
+    posicao 4 e 5 sugestao aleatoria ou genero do artista do momento
+
+    ae as musicas iram ser organizada com base na referencia desses artista
+
+
+- Adicionar um botao de aleatorio no Player
+
+exemplo:
+    Caso nao clico pra frente e pra traz avança e retrocede normal
+    Caso esta ativo pra frente e para atras entra no modo aleatorio

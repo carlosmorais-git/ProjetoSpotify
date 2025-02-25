@@ -2,14 +2,14 @@ import 'react'
 import SongItem from './SongItem'
 import PropTypes from 'prop-types';
 
-const SongList = ({ musicasFiltradaPeloArtista}) => {
+const SongList = ({ musicasFiltradaPeloArtista, tamanho}) => {
 
- 
+  
   return (
     <div className='song-list'>
       {
           musicasFiltradaPeloArtista
-          .filter((_, index) => index < 5)
+          .filter((_, index) => index < tamanho)
           .map((valor,chave) => (
             <SongItem 
             {...valor}
@@ -28,5 +28,6 @@ const SongList = ({ musicasFiltradaPeloArtista}) => {
 }
 SongList.propTypes = {
   musicasFiltradaPeloArtista: PropTypes.array,
+  tamanho: PropTypes.number,
 };
 export default SongList
