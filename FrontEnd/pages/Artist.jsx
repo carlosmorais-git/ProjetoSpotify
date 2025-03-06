@@ -32,7 +32,7 @@ const Artist = () => {
 
   // Array do artista
   const { artist_id } = useParams();// valor recuperado no url
-  const artista = artistArray.filter((valor) => valor.id === Number(artist_id))[0];
+  const artista = artistArray.filter((valor) => valor._id === artist_id)[0];
 
   // Filtra o array de músicas para obter apenas as do artista selecionado
   const musicasFiltradaPeloArtista = songsArray.filter((valor) => valor['artist'] === artista.name);
@@ -47,7 +47,7 @@ const Artist = () => {
   */
  
   const musicaAleatoria = musicasFiltradaPeloArtista[
-    parseInt(Math.random() * tamanhoTotal)].id;
+    parseInt(Math.random() * tamanhoTotal)]._id;
 
   const mudarTamanhoLista = () => {
     // Funcao tem o objetivo de mudar o tamanho de exibicao da lista de musicas do artista selecionado

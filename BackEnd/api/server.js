@@ -51,8 +51,17 @@ app.get("/artists", async (request, response) => {
 
 // Servidor olhando para tabela de SONS
 app.get("/songs", async (request, response) => {
-    response.send(await bancoDb.collection("songs").find({}).toArray())
-    response.json(bancoDb.collection("songs").find({}))
+    try {
+
+        // response.send(await bancoDb.collection("songs").find({}).toArray())
+
+        // // Converte o cursor em um array
+        const songs = await bancoDb.collection("songs").find({}).toArray(); 
+        response.json(songs); // Agora é seguro enviar como JSON
+
+    } catch (error) {
+        response.status(500).json({ error: "Erro ao buscar as músicas" });
+    }
 });
 
 

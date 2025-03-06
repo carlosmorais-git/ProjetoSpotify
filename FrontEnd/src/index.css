@@ -460,7 +460,7 @@ img {
   transition-duration: var(--transition-duration);
 }
 .player__icon--selecao {
-  cursor: pointer;
+  cursor: pointer;  
   color: var(--green-300);
 }
 /*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
@@ -496,7 +496,7 @@ img {
 }
 
 .player__bar-progress {
-  --_progress: 15%; /* barra de prograsso, ela cresce ao alterar os valores dessa variavel*/
+  --_progress: 0%; /* barra de prograsso, ela cresce ao alterar os valores dessa variavel*/
 
   height: 100%;
   width: var(--_progress);

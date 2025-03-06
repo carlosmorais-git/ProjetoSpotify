@@ -15,7 +15,7 @@ const Main = ({ type }) => {
         
         <ItemList
           title='Artista'
-          item={5}
+          item={6}
           itemArray={artistArray}
           path='/artists'
           idPath='/artist' />
@@ -29,7 +29,7 @@ const Main = ({ type }) => {
         
         <ItemList
           title='Musicas'
-          item={10}
+          item={20}
           itemArray={songsArray}
           path='/songs'
           idPath='/song' />

@@ -1,5 +1,6 @@
 - Na tela de home fazer os artistas ser surgerido com base no que o usuario gosta de ouvir.
-
+https://chatgpt.com/c/67bdabf4-6a3c-8011-bfec-a7acf541b32e
+Dica - ItemList
 exemplo:
     A posicao 1 artista do meu momento
     A posicao 2 ultimo artista selecionado

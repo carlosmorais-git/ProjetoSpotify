@@ -8,8 +8,12 @@ const Song = () => {
   
   const { song_id } = useParams();
  
+  // Musica selecionada
   const { artist,name,duration,audio,image } = songsArray
-  .filter((valor) => valor.id === parseInt(song_id))[0];
+  .filter((valor) => valor._id === song_id)[0];
+
+
+  // Buscar dados do artista da musica
   const artista = artistArray.filter((valor) => valor.name === artist)[0]
 
 
@@ -23,7 +27,7 @@ const Song = () => {
       </div>
 
       <div className='song__bar'>
-        <Link to={ `/artist/${artista.id}` } className='song__artist-image'>
+        <Link to={ `/artist/${artista._id}` } className='song__artist-image'>
           
             <img
               src={ artista.image }
@@ -32,7 +36,7 @@ const Song = () => {
           
         </Link>
 
-        <Player duracao = { duration } audio = { audio } idMusica = {song_id }/>
+        <Player duracao = { duration } audio = { audio } idMusica = {song_id }  artist={artist}/>
 
         <div>
           <p className='song__name'>{ name }</p>

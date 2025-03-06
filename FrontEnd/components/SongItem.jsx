@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 
 
-const SongItem = ({ image,name,duration,index,id}) => {
+const SongItem = ({ image,name,duration,index,_id}) => {
     
  
     return (<>
         {/* Linha da lista */}
-        <Link to={`/song/${id}`} className='song-item'> 
+        <Link to={`/song/${_id}`} className='song-item'> 
 
             {/* Os 3 primeiros valores agrupados */}
             
@@ -34,7 +34,7 @@ SongItem.propTypes = {
     image:PropTypes.string,
     name:PropTypes.string,
     duration:PropTypes.string,
-    id:PropTypes.string,
+    _id:PropTypes.string,
     index:PropTypes.string,
     artist:PropTypes.string,
 };
