@@ -1,5 +1,176 @@
-/* AULA COMPLEMENTAR DO CSS
-https://gamma.app/docs/Material-Complementar-Leia-com-atencao-4zcmbyugmzlav2v?mode=doc */
+/*
+=====================
+    SELETORES
+=====================
+:root => 
+    É uma pseudo-classe que se refere ao elemento raiz do documento, útil para definir variáveis globais.
+
+* => 
+    Seletor Universal, reseta formatações padrões do navegador.
+
+.classPai:hover .classFilha =>
+    Quando passar o mouse por cima do elemento pai, o filho irá aparecer.
+
+::=>
+    PseudoElemento permite estilizar partes de um elemento.
+
+=====================
+    CORES & VARIÁVEIS
+=====================
+hsl(141deg 75% 90%) => 
+    141deg => Cor verde
+    75% => Saturação
+    90% => Luminosidade
+
+hsl(0deg 0% 0% / 25%) => 
+    0deg => Cor preta
+    0% => Saturação
+    0% => Luminosidade
+    25% => Opacidade
+
+var => 
+    Insere o valor de uma variável CSS.
+
+--_shade => 
+    Variável para definir a cor do fundo do elemento (sombra).
+
+--_progress: 0%; => 
+    Variável para definir o tamanho da barra de progresso.
+
+=====================
+    FLEXBOX & GRID
+=====================
+display: flex; => 
+    Elementos ficam em linha.
+
+flex-direction => 
+    Define a direção dos elementos.
+
+flex: 1; => 
+    Expande ao máximo dentro do container pai.
+
+display: grid; => 
+    Controla o tamanho dos filhos sem esticar ou reduzir.
+
+grid-template-columns => 
+    Define o tamanho de cada coluna individualmente (ex: 200px, 200px, 150px).
+
+repeat => 
+    Repetição de valores (ex: repeat(3, 1fr) divide em 3 frações).
+
+minmax => 
+    Define valores mínimos e máximos para evitar que elementos quebrem.
+
+auto-fit => 
+    Encaixa o máximo de colunas possíveis na tela.
+
+place-items: center; => 
+    Centraliza elementos no grid.
+
+justify-self: start; =>
+    Força o elemento a ficar no início do grid ignorando herança do pai.
+
+grid-template-rows: 1fr auto; => 
+    Cria uma linha com fração e outra com tamanho automático.
+
+grid-template-columns: 1fr 3fr 1fr; => 
+    Cria 3 colunas com tamanhos diferentes.
+
+=====================
+    POSICIONAMENTO
+=====================
+position: relative; =>
+    Elemento se posiciona relativo ao pai.
+
+position: absolute; =>
+    Elemento se posiciona independentemente dos outros.
+
+transform: translateY(100%); =>
+    Move o elemento para baixo em relação ao seu tamanho.
+
+=====================
+    TAMANHOS & ESPAÇAMENTOS
+=====================
+min-height: 100svh; => 
+    Força o tamanho mínimo da tela (responsivo).
+
+min-height: 40svh; => 
+    Força o tamanho mínimo em relação ao elemento pai.
+
+gap => 
+    Espaçamento entre elementos.
+
+=====================
+    SCROLL & OVERFLOW
+=====================
+overflow-x: auto; => 
+    Scroll horizontal quando necessário.
+
+scroll-behavior: smooth; =>
+    Rolagem suave.
+
+overflow: hidden; => 
+    Esconde conteúdo que transborda.
+
+display: none; => 
+    Esconde o elemento.
+
+-ms-overflow-style: none; => 
+    Remove barra de rolagem no IE e Edge.
+
+=====================
+    TEXTO & FONTES
+=====================
+white-space: nowrap; => 
+    Faz com que o texto não quebre.
+
+text-decoration: none; => 
+    Remove sublinhado do link.
+
+text-decoration: underline; => 
+    Adiciona sublinhado.
+
+font-size: 7.5vw; => 
+    Define tamanho da fonte relativo à tela.
+
+Como calcular 7.5vw?
+    v_base = 96px
+    v_breakpoint = 1280px 
+    (v_base / v_breakpoint) * 100 = 7.5vw
+
+=====================
+    FUNÇÕES DE TRANSIÇÃO
+=====================
+ease => 
+    Função de temporização suave.
+
+transition-timing-function =>
+    Suaviza a transição.
+
+transition-duration => 
+    Controla a velocidade da transição.
+
+=====================
+    BORDAS & SOMBRAS
+=====================
+border-radius: 50%; =>
+    Deixa o elemento redondo.
+
+box-shadow: 0 0 25px 20px hsl(141deg 75% 2.5% / 25%); => 
+    Adiciona sombra ao elemento.
+
+=====================
+    OUTROS
+=====================
+background-size: cover; => 
+    Faz a imagem cobrir o elemento.
+
+background-position-y: 20%; => 
+    Move a imagem de fundo para baixo.
+
+cursor: pointer; => 
+    Cursor de mão ao passar sobre o elemento.
+*/
 
 
 
@@ -16,7 +187,7 @@ https://gamma.app/docs/Material-Complementar-Leia-com-atencao-4zcmbyugmzlav2v?mo
   --green-900: hsl(141deg 75% 10%);
   --green-950: hsl(141deg 75% 5%);
   --green-1000: hsl(141deg 75% 2.5%);
-  --green-1000-25: hsl(141deg 75% 2.5% / 25%);
+  --green-1000-25: hsla(141deg 75% 2.5% / 25%);
 
   --transition-duration: 250ms;
   --transition-function: ease;
@@ -24,10 +195,13 @@ https://gamma.app/docs/Material-Complementar-Leia-com-atencao-4zcmbyugmzlav2v?mo
   --border-radius-s: 5px;
   --border-radius-m: 10px;
   --border-radius-l: 15px;
+
+
+  --gatilhos: 0;
 }
 
 /* Reset -----------------------------------------------*/
-/* Seletor Universal */
+
 * {
   padding: 0;
   margin: 0;
@@ -39,11 +213,13 @@ body {
   color: var(--green-50);
 }
 
+
 a {
-  color: inherit; /* Herda cor*/
+  color: inherit;
   text-decoration: none;
 }
-/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+
+
 a:hover {
   text-decoration: underline;
 }
@@ -57,11 +233,10 @@ img {
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
-  /*força pegar tamanho minimo da tela deixar mais responsivo*/
-  min-height: 100svh; 
+  min-height: 100svh;
 }
 
-/* Header --------------------------------------------*/ 
+/* Header --------------------------------------------*/
 
 .header {
   display: flex;
@@ -76,14 +251,10 @@ img {
   margin: 0 10px 10px;
   padding: 20px;
   border-radius: var(--border-radius-l);
-  flex: 1; /* se espande no maximo dentro do seu contenner pai */
-  /* fazer um gradiend no fundo
-  to bottom == para baixo */
-  background-image: linear-gradient(
-    to bottom,
-    var(--green-900),
-    var(--green-1000)
-  );
+  flex: 1;
+  background-image: linear-gradient(to bottom,
+      var(--green-900),
+      var(--green-1000));
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -101,6 +272,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
 }
 
 .item-list__header {
@@ -110,28 +282,83 @@ img {
   line-height: 130%;
 }
 
+
+
 .item-list__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(172px, 1fr));
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
+  .item-list__container--song {
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+
+} */
+
+@media (max-width: 990px) {
+  .item-list__container--artist {
+    all: unset;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    gap: 7px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+  }
+
+  .item-list__container--artist ::-webkit-scrollbar {
+    display: none;
+    /* Remove a barra de rolagem no Chrome, Safari e Opera */
+  }
+
+  /* Personaliza a barra de rolagem */
+  .item-list__container--artist::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+
+  }
+
+  .item-list__container--artist::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .item-list__container--artist::-webkit-scrollbar-thumb {
+    background: #8888883d;
+    border-radius: 4px;
+  }
+
+  .item-list__container--artist::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Cor do "thumb" ao passar o mouse */
+  }
+
+
+
+}
+
+@media (max-width: 580px) {
   .item-list {
     gap: 20px;
   }
 
   .item-list__container {
     gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
   .item-list__header {
-    flex-direction: column;
+    flex-direction: row;
+    font-size: 14px;
     gap: 10px;
   }
 }
 
 /* SingleItem - Item de uma lista*/
+
 
 .single-item {
   padding: 25px 16px;
@@ -140,24 +367,24 @@ img {
   gap: 10px;
   border-radius: var(--border-radius-l);
   align-items: center;
-  transition: background-color var(--transition-function)
-    var(--transition-duration);
+  transition: background-color var(--transition-function) var(--transition-duration);
 }
-/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+
 .single-item:hover {
   background-color: var(--green-900);
   text-decoration: none;
 }
-/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+
 .single-item:hover .single-item__icon {
   opacity: 100%;
   transform: translateY(0);
 }
-/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+
 .single-item:hover .single-item__2lines {
   -webkit-line-clamp: 10;
   line-clamp: 10;
 }
+
 
 .single-item__div-image-button {
   position: relative;
@@ -171,6 +398,16 @@ img {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+}
+
+.single-item__div-image--song {
+  width: 155px;
+  height: 155px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15%;
 }
 
 .single-item__icon {
@@ -208,7 +445,6 @@ img {
   gap: 5px;
 }
 
-/* exibir so duas linhas de texto */
 .single-item__2lines {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -218,7 +454,29 @@ img {
   overflow: hidden;
 }
 
-@media (max-width: 480px) {
+
+@media (max-width: 580px) {
+
+  .single-item--song {
+    display: flex;
+    flex-direction: row;
+    gap: 20px
+  }
+
+  .single-item__div-image--song {
+    width: 40px;
+    height: 40px;
+  }
+
+  .single-item__div-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .single-item__title {
+    font-size: 14px;
+  }
+
   .single-item__icon {
     right: 15px;
     bottom: 15px;
@@ -231,7 +489,37 @@ img {
   .single-item__texts {
     gap: 0;
   }
+
+  .item-list__container {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  .item-list__container--song{
+    grid-template-columns: auto;
+  }
+
+  .single-item:hover .single-item__icon {
+    opacity: 0%;
+    transform: none;
+  }
 }
+
+
+@media (max-width: 370px) {
+
+  .single-item__div-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .single-item {
+    padding: 0;
+  }
+
+  .single-item__title {
+    font-size: 10px;
+  }
+}
+
 
 /* Artist */
 
@@ -243,11 +531,10 @@ img {
 
 .artist__header {
   --_shade: hsl(0deg 0% 0% / 25%);
-
   display: flex;
   align-items: end;
   padding: 25px;
-  height: 40svh;
+  min-height: 40svh;
   background-size: cover;
   background-position-y: 20%;
 }
@@ -258,11 +545,9 @@ img {
 
 .artist__body {
   padding: 39px 25px;
-  background-image: linear-gradient(
-    to bottom,
-    var(--green-900),
-    var(--green-950)
-  );
+  background-image: linear-gradient(to bottom,
+      var(--green-900),
+      var(--green-950));
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -272,6 +557,10 @@ img {
   .artist__title {
     font-size: 7.5vw;
     line-height: 100%;
+  }
+
+  .artist__header {
+    min-height: 25svh;
   }
 }
 
@@ -292,24 +581,24 @@ img {
 
 /* SongItem */
 
+
 .song-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 25px;
   border-radius: var(--border-radius-s);
-  transition: background-color var(--transition-function)
-    var(--transition-duration);
+  transition: background-color var(--transition-function) var(--transition-duration);
   gap: 15px;
 }
-/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+
 .song-item:hover {
   background-color: var(--green-800);
   text-decoration: none;
 }
-/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+
 .song-item__name:hover {
-  text-decoration: underline; /* Adiciona um underline */
+  text-decoration: underline;
 }
 
 .song-item__image {
@@ -329,18 +618,20 @@ img {
   align-items: center;
   gap: 25px;
 }
-.song-index__number-album{
-  width: 20px;
+
+.song-index__number-album {
+  width: 5px;
 
 }
+
 /* Ver mais */
 .song-list__see-more {
-  font-weight: 700; /* Tamnho da fonte */
+  font-weight: 700;
   margin-left: 25px;
   margin-top: 20px;
-  cursor: pointer; /* Efeito de clicar em um link*/
+  cursor: pointer;
 }
-/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+
 .song-list__see-more:hover {
   text-decoration: underline;
 }
@@ -363,11 +654,10 @@ img {
   margin: 0 20px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-image: linear-gradient(
-    to bottom, /* to bottom = no fundo*/
-    var(--green-800),
-    var(--green-950)
-  );
+  background-image: linear-gradient(to bottom,
+      /* to bottom = no fundo*/
+      var(--green-800),
+      var(--green-950));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -375,7 +665,7 @@ img {
 }
 
 .song__image-container {
-  box-shadow: 0 0 25px 10px var(--green-1000-25);
+  box-shadow: 0 0 25px 20px var(--green-1000-25);
 }
 
 .song__bar {
@@ -388,13 +678,20 @@ img {
   gap: 15px;
 }
 
+.song__bar--floating {
+  position: fixed;
+  width: 100%;
+  right: 0px;
+  bottom: 0px;
+  background-color: var(--green-950);
+}
+
 .song__artist-image {
   width: 75px;
   height: 75px;
   justify-self: start;
   border-radius: var(--border-radius-s);
   overflow: hidden;
- 
 }
 
 .song__name {
@@ -459,11 +756,12 @@ img {
   transition-timing-function: var(--transition-function);
   transition-duration: var(--transition-duration);
 }
+
 .player__icon--selecao {
-  cursor: pointer;  
+  cursor: pointer;
   color: var(--green-300);
 }
-/*PseudoClass ao usar :hover adiciona um evento ao passar o mouse por cima */
+
 .player__icon:hover {
   transform: scale(105%);
   color: var(--green-300);
@@ -496,7 +794,7 @@ img {
 }
 
 .player__bar-progress {
-  --_progress: 0%; /* barra de prograsso, ela cresce ao alterar os valores dessa variavel*/
+  --_progress: 0%;  /* barra de prograsso, ela cresce ao alterar os valores dessa variavel*/
 
   height: 100%;
   width: var(--_progress);

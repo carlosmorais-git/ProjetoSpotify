@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const SingleItem = ({ _id, image, name, artist, idPath }) => {
-
+  let nameBrackpoint = idPath.replace("/", "--");
   return (
-    <Link to={`${`${idPath}/${_id}`}`} className="single-item">
-      <div className='single-item__div-image-button '>
-        <div className='single-item__div-image'>
+    <Link to={`${`${idPath}/${_id}`}`} className={`single-item single-item${nameBrackpoint || ''}`}>
+      <div className= 'single-item__div-image-button'>
+        <div className= { idPath === '/song' ? 'single-item__div-image--song' : 'single-item__div-image'} >
           <img className="single-item__image"
             src={image}
             alt={`Imagem do Artista ${name}`} />

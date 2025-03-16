@@ -10,10 +10,10 @@ import { Link, useLocation } from 'react-router-dom';
 const ItemList = ({ title, item, itemArray, path, idPath }) => {
 
   const { pathname } = useLocation(); // processo de desestruturação
- 
   const isHome = pathname === '/';
   // se estiver na home continuo com o valor recuperado caso contrario passo um valor infinito
   const finalItems = isHome ? item : Infinity
+  let nameBrackpoint = idPath.replace("/", "--");
 
 
   return (
@@ -29,9 +29,11 @@ const ItemList = ({ title, item, itemArray, path, idPath }) => {
       )}
 
       </div>
+      {/* { idPath === '/artist' ? 'item-list__container--smooth' : 'item-list__container'} */}
+      <div className={ isHome ? `item-list__container item-list__container${nameBrackpoint || ''}` : nameBrackpoint === '--song' ? 'item-list__container item-list__container--song' : 'item-list__container'}
+      >
 
-      <div className='item-list__container'>
-
+        
         {
           // Adicionando um array dinamico para ser preenchido por qualquer coisa
           itemArray.filter((_, index) => index < finalItems)

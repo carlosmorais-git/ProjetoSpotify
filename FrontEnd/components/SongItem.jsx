@@ -18,7 +18,7 @@ const SongItem = ({ image,name,duration,index,_id}) => {
                 {/* Bloco album */}
                 <div className='song-item__album'>
                     <img src={image} alt="Imagem" className='song-item__image' />                    
-                    <p className='song-item__name'>{name}</p>
+                    <p className='song-item__name single-item__2lines'>{name}</p>
                 </div>
             </div>
 

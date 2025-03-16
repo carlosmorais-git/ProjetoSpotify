@@ -35,7 +35,7 @@ const Player = ({ duracao, idMusica, artist, audio }) => {
   useRef = Faz referencia como se fosse um link
   useEffect = Salva os estado de uma variavel especifica
   */
-
+ 
   function mudarMusica(idAtual, direcao) {
     const indexAtual = listaMusicArtista.indexOf(idAtual); // Índice da música atual
 
